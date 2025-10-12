@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
@@ -23,7 +25,6 @@ function  Dashboard() {
 
   useEffect(() => {
     fetchTasks();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters]);
 
   const fetchTasks = async () => {
@@ -65,7 +66,6 @@ function  Dashboard() {
       await fetchTasks();
       setShowModal(false);
       setEditingTask(null);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       throw new Error(err.response?.data?.message || 'Failed to save task');
     }

@@ -23,7 +23,6 @@ api.interceptors.request.use(
   }
 );
 
-// Handle responses
 api.interceptors.response.use(
   (response) => response,
   (error) => {
