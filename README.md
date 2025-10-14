@@ -42,6 +42,20 @@ A full-stack task management application built for learning DevOps practices inc
 - Backend: `5000`
 - Database: `5432`
 
+### Tips for Getting Started
+- **Start simple:** Begin by setting up a basic GitHub Actions workflow that runs on push and pull requests.
+- **Incremental approach:** Add one CI/CD step at a time (e.g., first linting, then testing, then Docker build).
+- **Use official actions:** Leverage pre-built GitHub Actions for Node.js, Docker, and CodeQL to simplify your workflow.
+- **Test locally:** Make sure your tests and Docker builds work locally before automating them in CI/CD.
+- **Read documentation:** Refer to [GitHub Actions docs](https://docs.github.com/en/actions) and [Docker docs](https://docs.docker.com/) for examples and troubleshooting.
+- **Monitor pipeline runs:** Check the Actions tab in your repository for logs and troubleshooting information.
+- **Iterate and improve:** Refine your workflow as you discover new requirements or issues.
+
+### References
+- Workflow syntax for Github actions: https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax
+- The following Docker workshop provides clear instructions that are helpful for completing the docker tasks in this project: https://docs.docker.com/get-started/workshop
+- The Render.com documentation helps in the deployment task: https://render.com/docs
+
 ## Task 1. Run Task manager Locally
 
  It is recommended to run the application locally before starting CI/CD to quickly identify and resolve issues in the development environment. Running locally allows you to verify basic functionality, catch errors early, and ensure dependencies are correctly configured.
@@ -183,20 +197,4 @@ Your goal is to implement a CI pipeline for the Task Management System:
 ## Task 6. Monitoring
 - SOMETHING SIMPLE HERE: Bäkkärissä on health check url. Lokituksen monitorointi?
 
-
 **TODO** PISTEYTYS TASKEILLE
-
-## Tips for Getting Started
-
-- **Start simple:** Begin by setting up a basic GitHub Actions workflow that runs on push and pull requests.
-- **Incremental approach:** Add one CI/CD step at a time (e.g., first linting, then testing, then Docker build).
-- **Use official actions:** Leverage pre-built GitHub Actions for Node.js, Docker, and CodeQL to simplify your workflow.
-- **Test locally:** Make sure your tests and Docker builds work locally before automating them in CI/CD.
-- **Read documentation:** Refer to [GitHub Actions docs](https://docs.github.com/en/actions) and [Docker docs](https://docs.docker.com/) for examples and troubleshooting.
-- **Monitor pipeline runs:** Check the Actions tab in your repository for logs and troubleshooting information.
-- **Iterate and improve:** Refine your workflow as you discover new requirements or issues.
-
-## References 
-The following Docker workshop provides clear instructions that are helpful for completing the tasks in this project: https://docs.docker.com/get-started/workshop
-
-Muita linkkejä jotka auttavat...
