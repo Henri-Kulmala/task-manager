@@ -1,0 +1,47 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:alpine
+    container_name: taskmanager-db
+    environment:
+      POSTGRES_DB: taskmanagement
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: taskmanager-backend
+    environment:
+      NODE_ENV: production
+      PORT: 5000
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/taskmanagement
+      JWT_SECRET: change-me-in-prod
+      JWT_EXPIRES_IN: 7d
+      FRONTEND_URL: http://localhost:5173
+      DB_SYNC: "true"
+    depends_on:
+      - db
+    ports:
+      - "5000:5000"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: http://localhost:5000/api
+    container_name: taskmanager-frontend
+    depends_on:
+      - backend
+    ports:
+      - "5173:80"
+
+volumes:
+  db-data:
